@@ -1,9 +1,16 @@
-<div class="hero max-h-[500px] h-screen bg-gradient-to-br from-base-100 to-base-300">
-	<div class="hero-content text-center">
-		<div class="max-w-md">
-			<h1 class="text-5xl font-bold">SvelteKit Starter Template</h1>
-			<p class="py-6">This is my personal SvelteKit starter template.</p>
-			<a class="btn btn-primary" href="/about"> What's Inside? </a>
-		</div>
-	</div>
+<script>
+	import Button from '@/components/ui/button/button.svelte';
+</script>
+
+<div class="flex max-h-screen min-h-[500px] flex-col items-center justify-center px-4">
+	<h1 class="font-heading scroll-m-20 text-3xl sm:text-4xl font-extrabold tracking-tight lg:text-5xl">
+		The Svelte Kit Starter Template
+	</h1>
+
+	<p class="max-w-lg py-6 sm:text-lg text-center font-semibold text-muted-foreground">
+		Packed with everything you need to get started building your next SvelteKit app. Fully
+		configured with TailwindCSS, TypeScript, and more.
+	</p>
+
+	<Button href="/about">What's Inside?</Button>
 </div>

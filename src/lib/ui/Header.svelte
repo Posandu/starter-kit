@@ -1,38 +1,24 @@
 <script lang="ts">
 	import type { user } from '$lib/db/schema';
-	import { theme } from '$lib/store';
-	import c from 'clsx';
+	import ThemeToggle from './ThemeToggle.svelte';
+	import Button from '@/components/ui/button/button.svelte';
 
 	export let loggedInUser: user | undefined = undefined;
 </script>
 
-<div class="navbar bg-base-200 border-b border-b-base-300">
+<div class="flex items-center border-b px-4 py-2">
 	<div class="flex-1">
-		<a class="btn btn-ghost text-xl" href="/">
+		<a class="font-heading text-lg font-semibold" href="/">
 			Starter Kit <span class="icon-[material-symbols--home]"></span>
 		</a>
 	</div>
 
-	<div class="flex-none">
-		<button
-			class="btn btn-circle mr-2 btn-ghost"
-			on:click={() => {
-				theme.toggle();
-			}}
-		>
-			<span
-				class={c(
-					'text-xl',
-					$theme == 'light'
-						? 'icon-[material-symbols--sunny]'
-						: 'icon-[material-symbols--dark-mode]'
-				)}
-			></span>
-		</button>
+	<div class="flex flex-none items-center justify-center">
+		<ThemeToggle />
 
 		{#if loggedInUser}
 			<form method="post" action="/rip">
-				<button class="btn btn-secondary btn-outline">Sign out</button>
+				<Button type="submit" class="ml-2" variant="ghost">Logout</Button>
 			</form>
 		{:else}
 			<a class="btn btn-primary" href="/auth">Login</a>
